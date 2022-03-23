@@ -15,10 +15,14 @@
     function ExportarPDF() {
       window.jsPDF = window.jspdf.jsPDF;
       const doc = new jsPDF({
-        orientation: "portrait",
+        orientation: "landscape",
+
         unit: "in",
         format: [11, 13]
       });
+      doc.text("prueba", 5.5, 0.4)
+      doc.setFont("helvetica");
+      doc.setFontSize(9);
       doc.autoTable({
         html: '#tabla_reportes'
       })
@@ -166,9 +170,7 @@
 } else { %>
   <!-- Si no hay login, retornamos al directorio raiz -->
   <script type="text/javascript">
- 
     window.location.href = "login";
-    
   </script>
   <% } %>
   </div>
